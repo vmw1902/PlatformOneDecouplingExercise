@@ -19,6 +19,9 @@ Person::Person(string name, int age)  {
 Person::~Person(){
     //nothing to do
 }
+void Person::setName(string newName) {
+	this->name = newName;
+}
 
 string Person::getName() const {
     return name;
@@ -30,23 +33,6 @@ int Person::getAge() const {
 
 void Person::setAge(int age) {
     this->age = age;
-}
-
-void Person::save() {
-    dao.save(this);
-}
-
-void Person::update() {
-    dao.update(this);
-}
-
-void Person::remove() {
-    dao.remove(this);
-}
-
-Person Person::find(string name) {
-    Person p("",1);
-    return p.dao.find(name);
 }
 
 string Person::toString() const {

@@ -10,16 +10,20 @@
 #define PersonDaoImpl_hpp
 
 #include <stdio.h>
-#include "PersonDao.hpp"
-
-class Person;
+#include "Person.hpp"
+#include <vector>
 
 class PersonDao  {
 public:
-    void save(Person *p);
-    Person find(std::string name);
+	PersonDao();
+    void add(Person *p);
+    Person* find(std::string name);
     void update(Person *p);
     void remove(Person *p);
+
+private:
+	std::vector<Person*> personDatabase;
+	Person* copy(Person* p);
 };
 
 

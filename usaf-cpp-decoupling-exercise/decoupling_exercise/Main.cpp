@@ -9,19 +9,19 @@
 #include <stdio.h>
 #include "Person.hpp"
 #include "PersonDao.hpp"
+#include "PolicePerson.h"
+#include "FireFighterPerson.h"
 
 using namespace std;
 
 int main(int argc, char* argv[]) {
-    Person p("Dave", 40); 
-    p.save();
+    PolicePerson p("Dave", 40);
+	cout << p << endl;
+	PersonDao dao;
+	dao.add(&p);
     p.setAge(41);
-    p.update();
-    Person q = Person::find("Dave");
-    cout << q << endl;
-    p.remove();
-    Person r = Person::find("Dave");
-    cout << r << endl;
-
-    
+    dao.update(&p);
+    Person* q = dao.find("Dave");
+    dao.remove(&p);
+    Person* r = dao.find("Dave");
 }

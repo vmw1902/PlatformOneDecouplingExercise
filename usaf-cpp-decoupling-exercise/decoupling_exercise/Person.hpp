@@ -12,11 +12,8 @@
 #include <stdio.h>
 #include <string>
 #include <iostream>
-#include "PersonDao.hpp"
 
 using namespace std;
-
-class PersonDao;
 
 class Person {
 public:
@@ -25,16 +22,13 @@ public:
     string getName() const;
     int getAge() const;
     void setAge(int age);
+	void setName(string newName);
     string toString() const;
     friend ostream& operator<<(ostream& os, const Person& person);
-    void save();
-    void update();
-    void remove();
-    static Person find(string name);
+
 private:
     string name;
     int age;
-    PersonDao dao; 
 };
 
 #endif /* person_hpp */
